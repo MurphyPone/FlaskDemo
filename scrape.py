@@ -22,7 +22,7 @@ definitions_html = definitions_html[0].findAll("li")
 for definition in definitions_html:
     definitions.append(definition.text)
 
-# method which returns the packaged contents we want to write to a list
+# method which returns the packaged contents we want to send elsewhere
 def getWord():
     result = [word]
     for defn in definitions:
