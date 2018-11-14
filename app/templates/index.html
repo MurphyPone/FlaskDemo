@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Word of the Day</title>
+    <style>
+      body {
+        font-family: Courier;
+        text-align: center;
+      }
+      #definition{
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="font-family: Helvetica;">The Word of the Day is </h3>
+      <h3 id="wotd">{{word}}</h3>
+      <ol id="definition">
+      {% for defn in definitions %}
+        <li>{{defn}}</li>
+      {% endfor %}
+      </ol>
+  </body>
+</html>
