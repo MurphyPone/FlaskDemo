@@ -1,0 +1,46 @@
+<html>
+
+<head>
+  <title>Word of the Day</title>
+  <style>
+    body {
+        font-family: Courier;
+        text-align: center;
+      }
+      #definition{
+        text-align: left;
+      }
+    </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript">
+    var pkg;
+
+    function post_data() {
+      var word = document.getElementById('wotd').innerHTML
+      var defns = document.getElementsByClassName('defns')
+
+      pkg = [
+        { "word": word },
+        { "definitions": defns }
+      ];
+
+      console.log(JSON.stringify(pkg));
+
+      $.post("receiver", JSON.stringify(pkg), function() {
+        console.log("sending data...");
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <h1 style="font-family: Helvetica;">The Word of the Day is </h3>
+    <h3 id="wotd" onclick="post_data()">{{word}}</h3>
+    <ol id="definition">
+      {% for defn in definitions %}
+      <li class="defns">{{defn}}</li>
+      {% endfor %}
+    </ol>
+</body>
+
+</html>
