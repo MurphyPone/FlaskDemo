@@ -17,13 +17,20 @@
 
     function post_data() {
       var word = document.getElementById('wotd').innerHTML
-      var defns = document.getElementsByClassName('defns')
+      var defns_html = document.getElementsByClassName('defns') // returns li items
+      var defns = [];
+
+      //strip out just the text
+      for(var i = 0; i < defns_html.length; i++) {
+        defns[i] = (defns_html[i].innerText);
+      }
 
       pkg = [
         { "word": word },
-        { "definitions": defns }
+        { "definitions": defns } // I don't think it likes that defns is an array as well...
       ];
 
+      console.log(pkg)
       console.log(JSON.stringify(pkg));
 
       $.post("receiver", JSON.stringify(pkg), function() {
