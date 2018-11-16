@@ -25,7 +25,7 @@ def worker():
     result = process(data)  # process the data from JSON to string
     return result   # post the resulting string on the network???
 
-# HELPER METHOD #
+# HELPER METHOD
 def process(data):
     result = ''
     for dict in data: # iterate over array [{'word': word}, {'definitions': [a,b,c ]}]
