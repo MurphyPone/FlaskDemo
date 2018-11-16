@@ -1,6 +1,6 @@
 import sys
 from flask import Flask, render_template, request, redirect, Response
-#from flask_cors import CORS, cross_origin
+from flask_cors import CORS, cross_origin
 from scrape import getWord
 app = Flask(__name__)
 cors = CORS(app)
