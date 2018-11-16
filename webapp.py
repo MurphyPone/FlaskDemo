@@ -18,7 +18,7 @@ def index():
 
 # post route
 @app.route('/receiver', methods = ['POST'])
-#@cross_origin()
+@cross_origin()
 def worker():
     data = request.get_json(force=True) # grabbit
     result = process(data)  # process the data from JSON to string
