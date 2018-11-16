@@ -1,10 +1,10 @@
 import sys
 from flask import Flask, render_template, request, redirect, Response
-from flask_cors import CORS, cross_origin
+#from flask_cors import CORS, cross_origin
 from scrape import getWord
 app = Flask(__name__)
 cors = CORS(app)
-app.config(['CORS_HEADERS'] = 'Content-Type')
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 result = getWord() # get the word of the day from webscrape.py
 word_send = result[0] # isolate the word to send to the server
