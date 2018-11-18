@@ -17,7 +17,7 @@ def index():
     return render_template("index1.html", word=word_send, definitions=definitions_send, results=result)
 
 # post route
-@app.route('/receiver', methods = ['POST'])
+@app.route('/receiver', methods = ['GET', 'POST'])
 @cross_origin()
 def worker():
     data = request.get_json(force=True) # grabbit
