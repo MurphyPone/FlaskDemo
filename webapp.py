@@ -24,7 +24,7 @@ def worker():
     result = process(data)  # process the data from JSON to string
     return result   # post the resulting string on the network???
 
-@app.route('/test')
+@app.route('/test', methods = ['GET'])
 def testPage():
     show = '<h1>' + word_send + '</h1>'
     for defn in definitions_send:
