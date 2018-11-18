@@ -29,12 +29,10 @@
         { "word": word },
         { "definitions": defns } // I don't think it likes that defns is an array as well...
       ];
-
-      console.log(pkg)
-      console.log(JSON.stringify(pkg));
-
-      $.post("receiver", JSON.stringify(pkg), function() {
+      
+      $.post("/receiver", JSON.stringify(pkg), function(data) {
         console.log("sending data...");
+        console.log(data);
       });
     }
   </script>

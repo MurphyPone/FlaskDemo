@@ -14,7 +14,7 @@ print("fetched the words")
 # main page route
 @app.route("/")
 def index():
-    return render_template("index1.html", word=word_send, definitions=definitions_send, results=result)
+    return render_template("index1.html", word=word_send, definitions=definitions_send)
 
 # post route
 @app.route('/receiver', methods = ['GET', 'POST'])
@@ -23,6 +23,13 @@ def worker():
     data = request.get_json(force=True) # grabbit
     result = process(data)  # process the data from JSON to string
     return result   # post the resulting string on the network???
+
+@app.route('/test')
+def testPage():
+    show = '<h1>' + word_send + '</h1>'
+    for defn in definitions_send:
+        show += '<p>' + defn + '</p>'
+    return show
 
 # HELPER METHOD
 def process(data):
