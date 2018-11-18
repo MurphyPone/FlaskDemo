@@ -15,7 +15,7 @@ page_soup = soup(page_html, "html.parser") # use bs4 to parse page_html using it
 container = page_soup.findAll("div", {"class":"definition-box"})
 word = container[0].strong.text
 
-# get all definition
+# get all definition #
 definitions = []
 definitions_html = container[0].findAll("ol")
 definitions_html = definitions_html[0].findAll("li")

@@ -16,7 +16,7 @@ print("fetched the words")
 def index():
     return render_template("index1.html", word=word_send, definitions=definitions_send)
 
-# post route
+# post route #
 @app.route('/receiver', methods = ['GET', 'POST'])
 @cross_origin()
 def worker():
